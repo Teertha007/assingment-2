@@ -1,0 +1,10 @@
+langchain
+langchain-community
+langchain-huggingface
+chromadb
+sentence-transformers
+ollama
+rouge-score
+nltk
+scikit-learn
+numpy
