@@ -22,7 +22,7 @@ This repository contains a Retrieval-Augmented Generation (RAG) system built to 
 
 1.  **Clone the repository:**
     ```bash
-    git clone <YOUR_REPO_URL>
+    git clone https://github.com/Teertha007/assingment-2.git
     cd AmbedkarGPT-Intern-Task
     ```
 
