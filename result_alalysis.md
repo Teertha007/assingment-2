@@ -42,21 +42,3 @@ Based on the metric analysis, the following failure patterns were observed:
 3.  **Context Dilution:** In the 900-character strategy, ROUGE scores dropped. This indicates that providing too much context caused the model to lose focus on the specific fact requested.
 
 ---
-
-## 3. Recommendations for Improvement
-
-To boost performance beyond the current prototype, I recommend the following:
-
-1.  **Implement a Re-ranking Step:**
-    * *Current:* Uses raw vector similarity (Cosine).
-    * *Fix:* Add a Cross-Encoder (e.g., `ms-marco-MiniLM`) to re-rank the top 5 retrieved chunks. This would likely push the MRR closer to 0.90.
-
-2.  **Hybrid Search:**
-    * *Current:* Dense vector retrieval only.
-    * *Fix:* Combine Vector search with Keyword search (BM25). This helps significantly with specific entity questions (e.g., specific dates or names) where semantic search sometimes struggles.
-
-3.  **Prompt Engineering for "Unanswerable" Queries:**
-    * Update the system prompt to explicitly instruct the model: *"If the answer is not in the context, reply 'Information not available'."* This will improve faithfulness scores on negative constraints.
-
-4.  **Metadata Filtering:**
-    * For questions specifying "In Document 1...", we can parse the query to filter the retriever by filename metadata, ensuring 100% precision for document-specific questions.
